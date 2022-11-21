@@ -7,3 +7,4 @@ create table users(
 );
 
 INSERT INTO `users` (`user_name`, `pssword`, `email`) VALUES ('omarderkaoui','38d8cae2b451f2e926b7bbf27319bd3a', 'omarderkaoui@gmail.com');
+INSERT INTO `users` (`user_name`, `pssword`, `email`) VALUES ('omarkhatabi','be9abe9c6bf3706d12afb72e80bd7e30', 'omarderkhetabi@gmail.com');
