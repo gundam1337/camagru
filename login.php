@@ -45,3 +45,4 @@ if (authenticate($username, $password,$pdo)) {
     $_SESSION["error"] = "error";
     header("location: index.php");
 }
+$pdo = null;

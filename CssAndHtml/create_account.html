@@ -13,12 +13,40 @@
     <div class="form">
       <form class="register-form" action="../create_account.php" method="post">
         <input type="text" placeholder="name" name="newusername" required />
+        <?php
+        if ($_SESSION["error1"] == "UNFW") 
+        {
+          echo "<p style='color:red;'>Username format should be ..</p>";
+        }
+         
+        ?>
         <input type="password" placeholder="password" name="newpassword" required />
         <input type="text" placeholder="email address" name="email" required />
+        <?php
+          if ($_SESSION["error2"] == "AE") {
+            echo "<p style='color:red;'>Invalide email format</p>";
+          }
+          if ($_SESSION["error3"] == "EE") {
+            echo "<p style='color:red;'>Email already exist</p>";
+          }
+          ?>
         <button>create</button>
+          <?php
+          if($_SESSION["error4"] == "IEF"){
+            echo "<p style='color:red;'>The user is already exists</p>";
+        }
+        ?>
       </form>
     </div>
   </div>
 </body>
 
 </html>
+
+
+<?php
+unset($_SESSION["error1"]);  
+unset($_SESSION["error2"]);  
+unset($_SESSION["error3"]);  
+unset($_SESSION["error4"]);  
+?>
