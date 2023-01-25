@@ -1,8 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 .login-page {
   width: 360px;
-  padding: 8% 0 0;
+  padding: 14% 0 0;
   margin: auto;
 }
 .form {
@@ -21,7 +22,7 @@
   background: #f2f2f2;
   width: 100%;
   border: 0;
-  margin: 0 0 15px;
+  margin: 0 0 5px;
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
@@ -95,4 +96,29 @@ body {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
+}
+
+.valid .form-input {
+  border: 1px solid #23b08d;
+  background-image: url("valid.svg");
+  background-position: 98%;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+}
+.invalid .form-input {
+  border: 1px solid #bf0404;
+  background-image: url("invalid.svg");
+  background-position: 98%;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+}
+.msg {
+  position: relative;
+  font-size: 1.025rem;
+}
+.valid .msg {
+  color: #23b08d;
+}
+.invalid .msg {
+  color: #bf0404;
 }

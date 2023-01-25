@@ -1,3 +1,5 @@
+<?php error_reporting (E_ALL ^ E_NOTICE); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,20 +8,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>camagru : login</title>
+  <script defer src="../javascript/username_validation.js"></script>
+  <script defer src="../javascript/password_validation.js"></script>
 </head>
 
 <body>
   <div class="login-page">
-    <div class="form">
+    <div class="form" id="form">
       <form class="login-form" action="../login.php" method="post" name="forum">
-        <input type="text" placeholder="username" name="username" required />
-        <input type="password" placeholder="password" name="password" required />
-        <button>login</button>
-        <?php
-        if($_SESSION["error"] == "error"){
-            echo "<p style='color:red;'>password or the username are wrong</p>";
-        }
-        ?>
+        <input id="username" type="text" placeholder="username" name="username" oninput="username_validation()"
+          required />
+        <p id="msg" class="msg"></p>
+        <input id="password" type="password" placeholder="password" name="password" oninput="password_validation()"
+          required />
+        <p id="psg" class="msg"></p>
+        <button type="submit">login</button>
         <p class="message">Not registered? <a href="create.php">Create an account</a></p>
       </form>
     </div>
