@@ -122,3 +122,97 @@ body {
 .invalid .msg {
   color: #bf0404;
 }
+
+.error {
+	color: #D8000C;
+	background-color: #FFBABA;
+	background-image: url('https://i.imgur.com/GnyDvKN.png');
+  border: 1px solid;
+	margin: 10px auto;
+	padding: 15px 10px 15px 50px;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	max-width: 460px;
+}
+
+.valid {
+	color: #185f2c;
+	background-color: #d1ffda;
+	background-image: url('../img/valid.png');
+  border: 1px solid;
+	margin: 10px auto;
+	padding: 15px 10px 15px 50px;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	max-width: 460px;
+}
+
+.erro {
+	color: #D8000C;
+	background-color: #FFBABA;
+	background-image: url('../img/error.png');
+  border: 1px solid;
+	margin: 10px auto;
+	padding: 15px 10px 15px 50px;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	max-width: 460px;
+}
+
+
+
+
+
+form .indicator{
+  height: 10px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  display: none;
+}
+form .indicator span{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: lightgrey;
+  border-radius: 5px;
+}
+form .indicator span:nth-child(2){
+  
+  margin: 0 3px;
+}
+form .indicator span.active:before{
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+}
+.indicator span.weak:before{
+  background-color: #ff4757;
+}
+.indicator span.medium:before{
+  background-color: orange;
+}
+.indicator span.strong:before{
+  background-color: #23ad5c;
+}
+/*form .text{
+  position: relative;
+  font-size: 20px;
+  font-weight: 500;
+  display: none;
+  margin-bottom: -10px;
+}*/
+form .text.weak{
+  color: #ff4757;
+}
+form .text.medium{
+  color: orange;
+}
+form .text.strong{
+  color: #23ad5c;
+}

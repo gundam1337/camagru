@@ -1,27 +1,28 @@
+
 function username_validation()
 {
-    var form = document.getElementById("form");
     var username = document.getElementById("username").value;
-    var msg = document.getElementById("msg");
+    var name = document.getElementById("name");
+    var bt = document.getElementById("bt");
 
-    var pattern = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i;
-
+    var pattern = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,21}$/i;
+    
   if(username.match(pattern)) {
-    form.classList.remove("invalid");
-    form.classList.add("valid");
-
-    msg.innerHTML = username + " is available.";
+    name.classList.remove("erro");
+    name.classList.add("valid");
+    name.innerHTML = "this " + username + " is Okey.";
+    return true;
   }
-  else if (username.length >= 21 ) {
-    form.classList.remove("valid");
-    form.classList.add("invalid");
-
-    msg.innerHTML = "Username is too long (maximum is 20 characters).";
+  else if (username.length >= 20 ) {
+    name.classList.remove("valid");
+    name.classList.add("erro");
+    name.innerHTML = "Username is too long (maximum is 21 characters).";  
+    return false;
   }
   else {
-    form.classList.remove("valid");
-    form.classList.add("invalid");
-
-    msg.innerHTML = "Username " + username + " is not available. Username may only contain alphanumeric characters or single hyphens, and cannot begin or end with a hyphen.";
+    name.classList.remove("valid");
+    name.classList.add("erro");
+    name.innerHTML = "Username " + username + " is not Okey. Username may only contain alphanumeric characters or single hyphens, and cannot begin or end with a hyphen.";
+    return false;
   }
 }

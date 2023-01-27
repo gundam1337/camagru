@@ -4,8 +4,8 @@ session_start();
 
 $host = '127.0.0.1';
 $db   = 'camagru';
-$user = 'root';
-$pass = 'lalagobiramos';
+$user = 'oderkaou';
+$pass = 'lalagobiramos1337';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
@@ -43,6 +43,6 @@ if (authenticate($username, $password,$pdo)) {
     echo "wellcome \n";
 } else {
     $_SESSION["error"] = "error";
-    header("location: index.php");
+    header("location: ../index.php");
 }
 $pdo = null;
