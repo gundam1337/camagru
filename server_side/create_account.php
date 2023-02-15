@@ -1,9 +1,10 @@
+
+
 <?php
 session_start();
 if (!isset($_POST['newusername']) || !isset($_POST['newpassword']) || !isset($_POST['email'])) {
     die('username and password are required');
 }
-$flag = 1;
 /* chech if the user and email is already exist in database */
 
 $host = '127.0.0.1';
@@ -44,10 +45,7 @@ $row = $stmt->fetch();
 if ($email == $row['email']) {
     $_SESSION["error2"] = "AEE";
     header("location: create.php");
-    $flag = 0;
 }
 
-if ($flag == 1)
-{
-    
-}
+if ($username == $row['user_name'] && $email == $row['email'])
+
