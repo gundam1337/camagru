@@ -1,0 +1,1 @@
+curl --ssl-reqd --url smtps://smtp.gmail.com:465 --user mailserverwebapp1337@gmail.com:cucjvikcxdzdkugi --mail-from mailserverwebapp1337@gmail.com --mail-rcpt omarderkaoui1337@gmail.com --upload-file hello.txt

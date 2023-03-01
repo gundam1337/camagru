@@ -25,7 +25,7 @@ function authenticate($username, $password, $pdo)
     $stmt = $pdo->prepare("SELECT user_name, pssword from users WHERE user_name = ? ");
     $stmt->execute([$username]);
     $row = $stmt->fetch();
-    if ($username == $row['user_name'] && $password == $row['pssword']) {
+    if ($username == $row['user_name'] && $password == $row['pssword'] && $row['is_activated'] == 1) {
         $_SESSION["username"] = $username;
         return (true);
     } else {

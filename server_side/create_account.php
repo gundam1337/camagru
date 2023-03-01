@@ -47,5 +47,10 @@ if ($email == $row['email']) {
     header("location: create.php");
 }
 
-if ($username == $row['user_name'] && $email == $row['email'])
-
+if ($username != $row['user_name'] && $email != $row['email'])
+{
+    $_SESSION["username"] = $username;
+    $_SESSION["password"] = md5($password);
+    $_SESSION["email"] = $email;
+    header("location: email_verification.php");
+}
