@@ -1,7 +1,6 @@
 function email_validation() {
     var email = document.getElementById("emi");
     var user_email = document.getElementById("email").value;
-    var bt = document.getElementById("bt");
     var pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
     if (user_email.match(pattern)) {
