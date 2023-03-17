@@ -5,7 +5,7 @@ class Email
     private $message;
 
 
-    function __construct($e,$m)
+    function __construct($e, $m)
     {
         $this->email = $e;
         $this->message = $m;
@@ -27,6 +27,12 @@ class Email
         // Please click the following link to activate your account:
         // $activation_link\r\n";
         // $string .= "\r\n";
+        $data = array(
+            'from' => 'mailserverwebapp1337@gmail.com',
+            'to' => $this->email,
+            'subject' => "this message is form the camagru team",
+            'html' => $this->message,
+        );
         fwrite($fp, $this->message);
         rewind($fp);
 
@@ -38,6 +44,7 @@ class Email
             CURLOPT_USERNAME => 'mailserverwebapp1337@gmail.com',
             CURLOPT_PASSWORD => 'cucjvikcxdzdkugi',
             CURLOPT_USE_SSL => CURLUSESSL_ALL,
+            CURLOPT_POSTFIELDS => http_build_query($data),
             CURLOPT_READFUNCTION => 'read_cb',
             CURLOPT_INFILE => $fp,
             CURLOPT_UPLOAD => true,
@@ -46,9 +53,9 @@ class Email
 
         $x = curl_exec($ch);
 
-        if ($x === false) {
-            echo curl_errno($ch) . ' = ' . curl_strerror(curl_errno($ch)) . PHP_EOL;
-        }
+        // if ($x === false) {
+        //     echo curl_errno($ch) . ' = ' . curl_strerror(curl_errno($ch)) . PHP_EOL;
+        // }
 
         curl_close($ch);
         fclose($fp);

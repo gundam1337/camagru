@@ -17,7 +17,7 @@ myForum.addEventListener('submit', function (event) {
             .then(response => response.json())
             .then(data => {
                 if (data.exists) {
-                    window.location.href = "http://camagru.nginx/CssAndHtml/user-found.html";
+                    window.location.href = "http://camagru.nginx/CssAndHtml/user_found.html";
                 } else {
                     window.location.href = "http://camagru.nginx/CssAndHtml/no-user-found.html";
                 }

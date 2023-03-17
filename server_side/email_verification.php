@@ -78,5 +78,4 @@ if ($x === false) {
 curl_close($ch);
 fclose($fp);
  
-echo "please check your email";
-
+header("location: ../CssAndHtml/account-activation.html");
