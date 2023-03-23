@@ -1,5 +1,6 @@
 <?php
-
+// this is a stupid a script to be honest 
+// the real goal of this script is just ot make sure the email is active 
 session_start();
 require("classes/database_class.php");
 
@@ -17,11 +18,15 @@ require("classes/database_class.php");
   $time_diff = $current_time - $stored_time;
   if (md5($row["email"]) == $key_email && $row["key"] == $token && $time_diff < 3600)
   {
-    //header("Location : http://camagru.nginx/CssAndHtml/new_password.php");
-  /
-    //exit;
+    $_SESSION["token"] = $token;
+    $_SESSION["key"] = $key_email;
+    
+    header("Location: http://camagru.nginx/CssAndHtml/new_password.php");
+    $_SESSION["token"] = $token;
+    $_SESSION["key"] = $key_email;
+    exit;
   }else {
-   // header("ocation : ../CssAndHtml/smthg_went_wrong.html");
-   // exit;
+    header("Location: ../CssAndHtml/smthg_went_wrong.html");
+    exit;
   }
 

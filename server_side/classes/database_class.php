@@ -14,8 +14,8 @@ class Database
     {
         $this->host = '127.0.0.1';
         $this->db = 'camagru';
-        $this->user = 'oderkaou';
-        $this->pass = 'lalagobiramos1337';
+        $this->user = 'root';
+        $this->pass = 'lalagobiramos';
         $this->charset = 'utf8mb4';
         $this->option =  [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,

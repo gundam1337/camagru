@@ -13,8 +13,8 @@ $is_active = 0;
 /* ----------------------------------- store the user as inactive user ------------------------*/
 $host = '127.0.0.1';
 $db   = 'camagru';
-$user = 'oderkaou';
-$pass = 'lalagobiramos1337';
+$user = 'root';
+$pass = 'lalagobiramos';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";

@@ -5,7 +5,7 @@ session_start();
 require("classes/database_class.php");
 
 
-function authenticate($username, $password, $pdo)
+function authenticate($username, $password)
 {
     $connection = new Database();
 
@@ -26,7 +26,7 @@ if (!isset($_POST['username'], $_POST['password'])) {
 }
 $username = $_POST['username'];
 $password = md5($_POST['password']);
-if (authenticate($username, $password, $pdo)) {
+if (authenticate($username, $password)) {
     echo "wellcome \n";
     exit;
 } else {

@@ -10,8 +10,8 @@ if (isset($_GET["email"]) && isset($_GET["activation_code"])) {
 
 $host = '127.0.0.1';
 $db   = 'camagru';
-$user = 'oderkaou';
-$pass = 'lalagobiramos1337';
+$user = 'root';
+$pass = 'lalagobiramos';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";

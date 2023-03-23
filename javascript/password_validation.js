@@ -11,7 +11,6 @@ let regExpMedium = /\d+/;
 let regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
 
 function password_validation() {
-
     if(input.value != ""){
     indicator.style.display = "block";
     indicator.style.display = "flex";
@@ -50,3 +49,8 @@ function password_validation() {
       }
 }
 
+const passwordInput = document.getElementById('password');
+
+passwordInput.addEventListener('input', function(){
+    password_validation();
+});
