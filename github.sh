@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Display the changes made to the repository
+echo "Changes made to the repository:"
+git status -s
+
 # Get the commit message from the user
 echo "Enter a commit message:"
 read commit_message
