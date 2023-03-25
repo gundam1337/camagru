@@ -1,70 +1,92 @@
 <?php error_reporting (E_ALL ^ E_NOTICE); ?>
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="../javascript/username_validation.js"></script>
+    <script defer src="../javascript/password_validation.js"></script>
+    <script defer src="../javascript/emai_validation.js"></script>
+    <title>Create Account</title>
+  </head>
 
+  <body>
+    <div class="login-page">
+      <div class="form">
+        <header>Sign Up <br />It's quick and easy.</header>
+        <!-- ********************** username part ********************* -->
+        <form
+          onsubmit="return username_validation()&&email_validation()"
+          class="register-form"
+          action="../server_side/create_account.php"
+          method="post"
+        >
+          <input
+            id="username"
+            type="text"
+            placeholder="name"
+            name="newusername"
+            required
+            oninput="username_validation()"
+          />
+          <div id="name"></div>
+          <!-- ********************************************************* -->
+          <!-- ********************** password part ********************* -->
+          <input
+            id="password"
+            type="password"
+            placeholder="password"
+            name="newpassword"
+            onkeyup="password_validation()"
+            required
+          />
+          <div class="indicator">
+            <span class="weak"></span>
+            <span class="medium"></span>
+            <span class="strong"></span>
+          </div>
+          <div class="text"></div>
+          <!-- ********************************************************* -->
+          <input
+            id="email"
+            type="text"
+            placeholder="email address"
+            name="email"
+            oninput="email_validation()"
+            required
+          />
+          <div id="emi"></div>
 
-  <!DOCTYPE html>
-  <html lang="en">
+          <div id="message"></div>
+          <script type="text/javascript">
+            var session1 = '<?php echo $_SESSION["error1"];?>';
+            var session2 = '<?php echo $_SESSION["error2"];?>';
+            var msg = document.getElementById("message");
 
-    <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <script defer src="../javascript/username_validation.js"></script>
-      <script defer src="../javascript/password_validation.js"></script>
-      <script defer src="../javascript/emai_validation.js"></script>
-      <title>Create Account</title>
-    </head>
-
-    <body>
-      <div class="login-page">
-        <div class="form">
-          <header>Sign Up <br>It's quick and easy.</header>
-          <!-- ********************** username part ********************* -->
-          <form onsubmit="return username_validation()&&email_validation()" class="register-form" action="../server_side/create_account.php" method="post" >
-            <input id="username" type="text" placeholder="name" name="newusername" required oninput="username_validation()"/>
-            <div id="name"></div>
-            <!-- ********************************************************* -->
-            <!-- ********************** password part ********************* -->
-            <input id="password" type="password" placeholder="password" name="newpassword" onkeyup="password_validation()"
-              required />
-            <div class="indicator">
-              <span class="weak"></span>
-              <span class="medium"></span>
-              <span class="strong"></span>
-            </div>
-            <div class="text"></div>
-            <!-- ********************************************************* -->
-            <input id="email" type="text" placeholder="email address" name="email" oninput="email_validation()" required/>
-            <div id="emi"></div>
-
-            <div id="message"></div>
-            <script type="text/javascript">
-                var session1 = '<?php echo $_SESSION["error1"];?>';
-                var session2 = '<?php echo $_SESSION["error2"];?>';
-                var msg = document.getElementById("message");
-
-                if (session1 == "AEN"){
-                  msg.innerHTML = "username is already taken!";
-                  msg.classList.add("error"); 
-                }
-                if (session2 == "AEE"){
-                  msg.innerHTML = "email is already taken!";
-                  msg.classList.add("error"); 
-                }
-                if (session1 == "AEN" && session2 == "AEE"){
-                  msg.innerHTML = "email and user name they already taken!";
-                  msg.classList.add("error"); 
-                }
-        </script>
-            <button type="submit" id="bt">create</button>
-            <script>  </script>
-          </form>
-        </div>
+            if (session1 == "AEN") {
+              msg.innerHTML = "username is already taken!";
+              msg.classList.add("error");
+            }
+            if (session2 == "AEE") {
+              msg.innerHTML = "email is already taken!";
+              msg.classList.add("error");
+            }
+            if (session1 == "AEN" && session2 == "AEE") {
+              msg.innerHTML = "email and user name they already taken!";
+              msg.classList.add("error");
+            }
+          </script>
+          <button type="submit" id="bt">create</button>
+          <script></script>
+        </form>
       </div>
-    </body>
-  </html>
+    </div>
+  </body>
+</html>
 
-  <?php
+<?php
   
     unset($_SESSION["error1"]);
     unset($_SESSION["error2"]);

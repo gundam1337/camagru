@@ -2,39 +2,60 @@
 
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>camagru : login</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>camagru : login</title>
-</head>
-
-<body>
-  <div class="login-page">
-    <div class="form" id="form">
-      <form class="login-form" action="../server_side/login.php" method="post" name="forum">
-        <input id="username" type="text" placeholder="username" name="username" required />
-        <input id="password" type="password" placeholder="password" name="password" required />
-        <div id="name"></div>
-        <script type="text/javascript">
-          var myvar= '<?php echo $_SESSION["error"];?>';
-          var msg = document.getElementById("name");
-          if (myvar == "error")
-          {
-            '<?php echo $_SESSION["error"];?>'
-            msg.innerHTML = "This username or the password you entered isn't connected to an account";
-            msg.classList.add("error"); 
-          }
-        </script>
-        <button type="submit">login</button>
-        <p class="message">Not registered? <a href="../server_side/create.php">Create an account</a></p>
-        <p class="message">forget password ? <a href="../server_side/password_reset.php">Password reset</a></p>
-      </form>
+  <body>
+    <div class="login-page">
+      <div class="form" id="form">
+        <form
+          class="login-form"
+          action="../server_side/login.php"
+          method="post"
+          name="forum"
+        >
+          <input
+            id="username"
+            type="text"
+            placeholder="username"
+            name="username"
+            required
+          />
+          <input
+            id="password"
+            type="password"
+            placeholder="password"
+            name="password"
+            required
+          />
+          <div id="name"></div>
+          <script type="text/javascript">
+            var myvar = '<?php echo $_SESSION["error"];?>';
+            var msg = document.getElementById("name");
+            if (myvar == "error") {
+              ('<?php echo $_SESSION["error"];?>');
+              msg.innerHTML =
+                "This username or the password you entered isn't connected to an account";
+              msg.classList.add("error");
+            }
+          </script>
+          <button type="submit">login</button>
+          <p class="message">
+            Not registered?
+            <a href="../server_side/create.php">Create an account</a>
+          </p>
+          <p class="message">
+            forget password ?
+            <a href="../server_side/password_reset.php">Password reset</a>
+          </p>
+        </form>
+      </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
 
 <?php

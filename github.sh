@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Format all JavaScript, PHP, and HTML files in the directory
+prettier --write "**/*.{js,php,html}"
+
 # Display the changes made to the repository
 echo "Changes made to the repository:"
 git status -s
