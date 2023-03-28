@@ -69,22 +69,6 @@ function password_validation() {
   return no;
 }
 
-// function cheakInputMatch(){
-//     const password1 = passwordInput.value;
-//     const password2 = document.getElementById("confirm_password").value;
-//     const message = document.getElementById("email-error-message");
-//     console.log("first password ",password1,"second password", password2);
-//     message.style.color = "red";
-//     if(password1 == password2){
-//         message.textContent = "Passwords do not match";
-//         // return true;
-//         console.log(true);
-//     }
-//     else{
-//         console.log(false);
-//     }
-// }
-
 passwordInput.addEventListener("input", function () {
   let satus = password_validation();
   if (satus == 1) {
@@ -107,6 +91,37 @@ form.addEventListener("submit", function (event) {
   if (password1.value !== password2.value) {
     message.textContent = "Passwords do not match";
   } else {
-    myForm.submit(); // submit the form if the passwords match
+    // myForm.submit(); // submit the form if the passwords match
+    const info = { password: password1.value };
+    const DataJson = JSON.stringify(info);
+    // fetch("http://camagru.nginx/server_side/update_password.php", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: DataJson,
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     // if (data.exists) {
+    //     //   window.location.href =
+    //     //     "http://camagru.nginx/CssAndHtml/user_found.html";
+    //     // } else {
+    //     //   window.location.href =
+    //     //     "http://camagru.nginx/CssAndHtml/no-user-found.html";
+    //     // }
+    //     console.log(data);
+    //   });
+
+    fetch("http://camagru.nginx/server_side/update_password.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(info),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // handle the response data
+        console.log(data);
+      });
   }
 });
