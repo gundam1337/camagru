@@ -91,25 +91,8 @@ form.addEventListener("submit", function (event) {
   if (password1.value !== password2.value) {
     message.textContent = "Passwords do not match";
   } else {
-    // myForm.submit(); // submit the form if the passwords match
     const info = { password: password1.value };
     const DataJson = JSON.stringify(info);
-    // fetch("http://camagru.nginx/server_side/update_password.php", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: DataJson,
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     // if (data.exists) {
-    //     //   window.location.href =
-    //     //     "http://camagru.nginx/CssAndHtml/user_found.html";
-    //     // } else {
-    //     //   window.location.href =
-    //     //     "http://camagru.nginx/CssAndHtml/no-user-found.html";
-    //     // }
-    //     console.log(data);
-    //   });
 
     fetch("http://camagru.nginx/server_side/update_password.php", {
       method: "POST",
@@ -122,6 +105,12 @@ form.addEventListener("submit", function (event) {
       .then((data) => {
         // handle the response data
         console.log(data);
+        if (data.status_passStrengh && data.status_passUpdate) {
+          window.location.href = "http://camagru.nginx/";
+        } else {
+          window.location.href =
+            "http://camagru.nginx/CssAndHtml/smthg_went_wrong.html";
+        }
       });
   }
 });
